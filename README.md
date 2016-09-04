@@ -1,2 +1,2 @@
 # units
-A simple, hopefully platform independent, unit testing framework for C.
+A simple unit test framework for C applications in posix systems.
