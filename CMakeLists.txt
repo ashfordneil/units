@@ -5,9 +5,9 @@ project(units)
 # CMake Variables
 set(CMAKE_C_STANDARD 11)
 
-# Variables
-set(SOURCES units.h signalHandling.c signalHandling.h runtime.h tests.c)
-include_directories(${CMAKE_SOURCE_DIR})
+# Main Library
+include_directories(src)
+add_subdirectory(src)
 
-# Main library
-add_library(units STATIC ${SOURCES})
+# Example Executables
+add_subdirectory(examples)

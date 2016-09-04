@@ -34,7 +34,7 @@ void child_signal_setup(void)
  */
 static void sigfpe_handle(int signal)
 {
-    exit(1);
+    exit(EXIT_SIGFPE);
 }
 
 /**
@@ -46,5 +46,5 @@ static void sigfpe_handle(int signal)
  */
 static void sigsegv_handle(int signal)
 {
-    exit(1);
+    exit(EXIT_SIGSEGV);
 }
