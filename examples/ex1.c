@@ -13,6 +13,7 @@
 static void testOne(void);
 static void testTwo(void);
 static void testThree(void);
+static void testFour(void);
 
 int main(int argc, char** argv)
 {
@@ -20,6 +21,7 @@ int main(int argc, char** argv)
     add_test(&frame, testOne);
     add_test(&frame, testTwo);
     add_test(&frame, testThree);
+    add_test(&frame, testFour);
     run_suite(&frame);
     return 0;
 }
@@ -37,4 +39,9 @@ static void testTwo(void)
 static void testThree(void)
 {
     raise(SIGFPE);
+}
+
+static void testFour(void)
+{
+    raise(SIGPIPE);
 }

@@ -60,6 +60,11 @@ void run_test(struct test* test)
                     test->test_function_name);
             test->status = FAILED;
             break;
+        case EXIT_SIGPIPE:
+            printf("\tTest '%s' Failed with signal SIGPIPE\n",
+                    test->test_function_name);
+            test->status = FAILED;
+            break;
         default:
             test->status = INDETERMINATE;
     }

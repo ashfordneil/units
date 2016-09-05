@@ -14,6 +14,7 @@
 
 static void sigfpe_handle(int signal);
 static void sigsegv_handle(int signal);
+static void sigpipe_handle(int signal);
 
 /**
  * @brief Initialises the signal handling functions for a child fork - the
@@ -23,6 +24,7 @@ void child_signal_setup(void)
 {
     signal(SIGFPE, sigfpe_handle);
     signal(SIGSEGV, sigsegv_handle);
+    signal(SIGPIPE, sigpipe_handle);
 }
 
 /**
@@ -47,4 +49,16 @@ static void sigfpe_handle(int signal)
 static void sigsegv_handle(int signal)
 {
     exit(EXIT_SIGSEGV);
+}
+
+/**
+ * @brief Signal handler for SIGPIPE - Signal Broken Pipe
+ *
+ * Handles a broken pipe and exits the program.
+ *
+ * @param signal The signal being handles.
+ */
+static void sigpipe_handle(int signal)
+{
+    exit(EXIT_SIGPIPE);
 }

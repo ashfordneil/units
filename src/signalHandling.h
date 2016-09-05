@@ -12,6 +12,7 @@
 
 #define EXIT_SIGSEGV 2
 #define EXIT_SIGFPE 3
+#define EXIT_SIGPIPE 4
 
 void child_signal_setup(void);
 
