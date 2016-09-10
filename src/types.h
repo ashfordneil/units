@@ -11,6 +11,8 @@
 #ifndef UNITS_TYPES_H
 #define UNITS_TYPES_H
 
+#include "units.h"
+
 /**
  * @brief Enumeration of the possible statuses of a test.
  */
@@ -41,5 +43,9 @@ struct test {
 
 void new_test(struct test* output, void (*test_function)(void),
         const char* test_function_name);
+
+void delete_test(struct test* param);
+
+void delete_framework(struct test_framework* frame);
 
 #endif //UNITS_TYPES_H

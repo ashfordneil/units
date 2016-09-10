@@ -12,13 +12,8 @@
 
 struct test;
 
-/**
- * @brief A simple array-list that stores the tests in the framework.
- */
 struct test_framework {
-    /// The number of tests in the framework.
     int test_count;
-    /// The array-list containing these tests.
     struct test* tests;
 };
 

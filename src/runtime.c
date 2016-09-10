@@ -94,4 +94,5 @@ void run_suite(struct test_framework* frame)
                 break;
         }
     }
+    delete_framework(frame);
 }

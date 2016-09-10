@@ -35,6 +35,27 @@ void new_test(struct test* output, void (*test_function)(void),
 }
 
 /**
+ * @brief Deletes a test struct, freeing all necessary memory.
+ *
+ * @param param The test struct to be deleted.
+ */
+void delete_test(struct test* param)
+{
+    if (param == NULL) {
+        return;
+    }
+
+    if (param->test_function_name != NULL) {
+        free(param->test_function_name);
+    }
+
+    if (param->dependencies) {
+        free(param->dependencies);
+    }
+}
+
+
+/**
  * @brief Creates and returns an empty test framework.
  *
  * @return The empty framework.
@@ -45,4 +66,17 @@ struct test_framework new_framework(void)
     output.test_count = 0;
     output.tests = NULL;
     return output;
+}
+
+/**
+ * @brief Deletes a test framework, freeing all necessary memory.
+ *
+ * @param frame The test framework to be deleted.
+ */
+void delete_framework(struct test_framework* frame)
+{
+    for (int i = 0; i < frame->test_count; ++i) {
+        delete_test(&frame->tests[i]);
+    }
+    free(frame->tests);
 }
