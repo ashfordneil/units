@@ -10,6 +10,8 @@
 #ifndef UNITS_UNITS_H
 #define UNITS_UNITS_H
 
+#include <stdbool.h>
+
 struct test;
 
 struct test_framework {
@@ -25,5 +27,13 @@ void _add_test(struct test_framework* frame, void (*test_function)(void),
                const char* test_function_name);
 
 void run_suite(struct test_framework* frame);
+
+#define assert_equal(x, y) _assert((x) == (y), __LINE__)
+
+#define assert_true(x) _assert(x, __LINE__)
+
+#define assert_false(x) _assert(!(x), __LINE__)
+
+void _assert(bool pass, int number);
 
 #endif //UNITS_UNITS_H

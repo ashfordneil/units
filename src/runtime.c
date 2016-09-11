@@ -51,18 +51,15 @@ void run_test(struct test* test)
             test->status = FAILED;
             break;
         case EXIT_SIGSEGV:
-            printf("\tTest '%s' Failed with signal SIGSEGV\n",
-                    test->test_function_name);
+            printf("\tFailed with signal SIGSEGV\n");
             test->status = FAILED;
             break;
         case EXIT_SIGFPE:
-            printf("\tTest '%s' Failed with signal SIGFPE\n",
-                    test->test_function_name);
+            printf("\tFailed with signal SIGFPE\n");
             test->status = FAILED;
             break;
         case EXIT_SIGPIPE:
-            printf("\tTest '%s' Failed with signal SIGPIPE\n",
-                    test->test_function_name);
+            printf("\tFailed with signal SIGPIPE\n");
             test->status = FAILED;
             break;
         default:
@@ -81,18 +78,6 @@ void run_suite(struct test_framework* frame)
         struct test* test = &frame->tests[i];
         printf("Running Test: %s\n", test->test_function_name);
         run_test(test);
-        printf("\tTest Status: ");
-        switch (test->status) {
-            case INDETERMINATE:
-                printf("Indeterminate.\n");
-                break;
-            case FAILED:
-                printf("Failed.\n");
-                break;
-            case PASSED:
-                printf("Passed.\n");
-                break;
-        }
     }
     delete_framework(frame);
 }

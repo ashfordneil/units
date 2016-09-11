@@ -8,6 +8,7 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "units.h"
 #include "types.h"
 
@@ -28,3 +29,11 @@ void _add_test(struct test_framework* frame, void (*test_function)(void),
     new_test(frame->tests + newIndex, test_function, test_function_name);
 }
 
+void _assert(bool pass, int number)
+{
+    if (pass) {
+        return;
+    }
+    printf("\tFailed at line %d\n", number);
+    exit(EXIT_FAILURE);
+}
