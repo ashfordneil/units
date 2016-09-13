@@ -32,6 +32,10 @@ void run_suite(struct test_framework* frame);
 
 #define assert_inequal(x, y) _assert((x) != (y), __LINE__)
 
+#define assert_greater(x, y) _assert((x) > (y), __LINE__)
+
+#define assert_lesser(x, y) _assert((x) > (y), __LINE__)
+
 #define assert_true(x) _assert(x, __LINE__)
 
 #define assert_false(x) _assert(!(x), __LINE__)
