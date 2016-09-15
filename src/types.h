@@ -41,6 +41,16 @@ struct test {
     struct test* dependencies;
 };
 
+/**
+ * @brief An array of tests.
+ */
+struct test_framework {
+    /// The number of tests.
+    int test_count;
+    /// The actual array of tests.
+    struct test* tests;
+};
+
 void new_test(struct test* output, void (*test_function)(void),
         const char* test_function_name);
 

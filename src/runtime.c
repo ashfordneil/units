@@ -9,8 +9,6 @@
 
 #include "runtime.h"
 #include "signalHandling.h"
-#include "units.h"
-#include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>

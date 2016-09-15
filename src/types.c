@@ -8,7 +8,6 @@
  */
 
 #include "types.h"
-#include "units.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -60,11 +59,11 @@ void delete_test(struct test* param)
  *
  * @return The empty framework.
  */
-struct test_framework new_framework(void)
+struct test_framework* new_framework(void)
 {
-    struct test_framework output;
-    output.test_count = 0;
-    output.tests = NULL;
+    struct test_framework* output = malloc(sizeof(struct test_framework));
+    output->test_count = 0;
+    output->tests = NULL;
     return output;
 }
 

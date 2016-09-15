@@ -12,14 +12,9 @@
 
 #include <stdbool.h>
 
-struct test;
+struct test_framework;
 
-struct test_framework {
-    int test_count;
-    struct test* tests;
-};
-
-struct test_framework new_framework(void);
+struct test_framework* new_framework(void);
 
 #define add_test(frame, test) _add_test(frame, test, #test)
 
@@ -30,7 +25,7 @@ void run_suite(struct test_framework* frame);
 
 #define assert_equal(x, y) _assert((x) == (y), __LINE__)
 
-#define assert_inequal(x, y) _assert((x) != (y), __LINE__)
+#define assert_unequal(x, y) _assert((x) != (y), __LINE__)
 
 #define assert_greater(x, y) _assert((x) > (y), __LINE__)
 
